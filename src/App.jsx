@@ -4,9 +4,12 @@ import Portfolio from './components/Portfolio'
 import Timeline from './components/Timeline'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import GuessingGame from './components/GuessingGame'
+import { useKonamiCode } from './components/KonamiCode/useKonamiCode'
 
 function App() {
-  const [theme, setTheme] = useState(null);
+	const konami = useKonamiCode();
+  	const [theme, setTheme] = useState(null);
 
 	useEffect(() => {
 		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -64,23 +67,28 @@ function App() {
 
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={handleThemeSwitch}
-        className="fixed p-2 z-10 right-20 top-4 bg-green-300 text-lg rounded-md dark:bg-orange-300"
-      >
-        {theme === "dark" ? sun : moon}
-      </button>
-      <div className="bg-white dark:bg-stone-900 dark:text-stone-300 text-stone-900 min-h-screen font-inter">
-        <div className="max-w-5xl w-11/12 mx-auto">
-          <Introduction />
-          <Portfolio />
-          <Timeline />
-          <Contact />
-          <Footer />
-        </div>
-      </div>
+	  <>
+	  {/* If konami code is inputed, display guessing game, else, display single page developer portfolio. */}
+	  {konami ? <GuessingGame /> : 
+	  	<>
+		<button
+			type="button"
+			onClick={handleThemeSwitch}
+			className="fixed p-2 z-10 right-20 top-4 bg-green-300 text-lg rounded-md dark:bg-orange-300"
+		>
+			{theme === "dark" ? sun : moon}
+		</button>
+		<div className="bg-white dark:bg-stone-900 dark:text-stone-300 text-stone-900 min-h-screen font-inter">
+			<div className="max-w-5xl w-11/12 mx-auto">
+			<Introduction />
+			<Portfolio />
+			<Timeline />
+			<Contact />
+			<Footer />
+			</div>
+		</div>
+		</>
+	  }
     </>
   )
 }
