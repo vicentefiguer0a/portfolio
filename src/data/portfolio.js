@@ -12,9 +12,9 @@ export default [
         link: 'https://github.com/vicentefiguer0a/employee-management-system-ui'
     },
     {
-        title: 'Developer Portfolio',
-        imgUrl: 'assets/portfolio-project.JPG',
-        stack: ['React', 'Tailwind', 'Vite'],
-        link: 'https://vicentefiguer0a.github.io/portfolio/'
+        title: 'Sorting Algorithm Visualizer',
+        imgUrl: 'assets/sorting-algorithm-visualizer.JPG',
+        stack: ['Java', 'Java Swing'],
+        link: 'https://github.com/vicentefiguer0a/sorting-algorithm-visualizer'
     },
 ]
